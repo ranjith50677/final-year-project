@@ -40,6 +40,7 @@ import breakpoints from "assets/theme/base/breakpoints";
 
 // Material Dashboard 2 PRO React context
 import { useArgonController } from "context";
+import Drop from '../drop'
 
 function DefaultNavbar({ brand, transparent, light, action }) {
   const [controller] = useArgonController();
@@ -107,13 +108,13 @@ function DefaultNavbar({ brand, transparent, light, action }) {
             </ArgonTypography>
           </ArgonBox>
           <ArgonBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
-            <DefaultNavbarLink
+            {/* <DefaultNavbarLink
               icon="donut_large"
               name="dashboard"
               route="/dashboard"
               light={light}
-            />
-            <DefaultNavbarLink icon="person" name="profile" route="/profile" light={light} />
+            /> */}
+            {/* <DefaultNavbarLink icon="person" name="profile" route="/profile" light={light} /> */}
             <DefaultNavbarLink
               icon="account_circle"
               name="sign up"
@@ -141,20 +142,22 @@ function DefaultNavbar({ brand, transparent, light, action }) {
                 </ArgonButton>
               </ArgonBox>
             ) : (
-              <ArgonBox display={{ xs: "none", lg: "inline-block" }}>
-                <ArgonButton
-                  component="a"
-                  href={action.route}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant={action.variant ? action.variant : "contained"}
-                  color={action.color ? action.color : "info"}
-                  size="small"
-                  sx={{ mt: -0.3 }}
-                >
-                  {action.label}
-                </ArgonButton>
-              </ArgonBox>
+             
+              <Drop/>
+              // <ArgonBox display={{ xs: "none", lg: "inline-block" }}>
+              //   <ArgonButton
+              //     component="a"
+              //     href={action.route}
+              //     target="_blank"
+              //     rel="noreferrer"
+              //     variant={action.variant ? action.variant : "contained"}
+              //     color={action.color ? action.color : "info"}
+              //     size="small"
+              //     sx={{ mt: -0.3 }}
+              //   >
+              //     {action.label}
+              //   </ArgonButton>
+              // </ArgonBox>
             ))}
           <ArgonBox
             display={{ xs: "inline-block", lg: "none" }}

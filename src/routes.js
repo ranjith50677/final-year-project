@@ -35,13 +35,16 @@ Coded by www.creative-tim.com
 
 // Argon Dashboard 2 MUI layouts
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
-import Billing from "layouts/billing";
-import VirtualReality from "layouts/virtual-reality";
-import RTL from "layouts/rtl";
+// import Tables from "layouts/tables";
+// import Billing from "layouts/billing";
+// import VirtualReality from "layouts/virtual-reality";
+// import RTL from "layouts/rtl";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import Sign from "layouts/authentication/owner-sin";
+import Demo from './zemo/demo'; 
+import Demo1 from './from/demo'; 
 
 // Argon Dashboard 2 MUI components
 import ArgonBox from "components/ArgonBox";
@@ -107,6 +110,36 @@ const routes = [
       <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-copy-04" />
     ),
     component: <SignIn />,
+  },
+  {
+    type: "route",
+    name: "Sign In",
+    key: "sign-in",
+    route: "/sign-in",
+    icon: (
+      <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-copy-04" />
+    ),
+    component: <Sign />,
+  },
+  {
+    type: "route",
+    name: "demo",
+    key: "demo",
+    route: "/student",
+    icon: (
+      <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-copy-04" />
+    ),
+    component: <Demo />,
+  },
+  {
+    type: "route",
+    name: "demo1",
+    key: "demo1",
+    route: "/student1",
+    icon: (
+      <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-single-copy-04" />
+    ),
+    component: <Demo1 />,
   },
   {
     type: "route",

@@ -29,6 +29,7 @@ import ArgonButton from "components/ArgonButton";
 
 // Authentication layout components
 import IllustrationLayout from "layouts/authentication/components/IllustrationLayout";
+import { userLogin } from "api/apiservice";
 
 // Image
 const bgImage =
@@ -36,8 +37,14 @@ const bgImage =
 
 function Illustration() {
   const [rememberMe, setRememberMe] = useState(false);
-
+  const[email,setEmail]=useState("");
+  const[password,setPassword]=useState("");
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  const handle=async()=>{
+    let res=await userLogin(email,password)
+    console.log(res);
+  }
 
   return (
     <IllustrationLayout
@@ -52,10 +59,11 @@ function Illustration() {
     >
       <ArgonBox component="form" role="form">
         <ArgonBox mb={2}>
-          <ArgonInput type="email" placeholder="Email" size="large" />
+          <ArgonInput type="email" placeholder="Email" size="large" onChange={(e)=>setEmail(e.target.value)} />
         </ArgonBox>
         <ArgonBox mb={2}>
-          <ArgonInput type="password" placeholder="Password" size="large" />
+          <ArgonInput type="password" placeholder="Password" size="large"
+          onChange={(e)=>setPassword(e.target.value)} />
         </ArgonBox>
         <ArgonBox display="flex" alignItems="center">
           <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -69,22 +77,20 @@ function Illustration() {
           </ArgonTypography>
         </ArgonBox>
         <ArgonBox mt={4} mb={1}>
-          <ArgonButton color="info" size="large" fullWidth>
+          <ArgonButton color="info" size="large" fullWidth onClick={handle}>
             Sign In
           </ArgonButton>
         </ArgonBox>
         <ArgonBox mt={3} textAlign="center">
           <ArgonTypography variant="button" color="text" fontWeight="regular">
             Don&apos;t have an account?{" "}
-            <ArgonTypography
+            <ArgonBox mt={4} mb={1}>
+          <ArgonButton color="black" size="large" fullWidth  
               component={Link}
-              to="/authentication/sign-up"
-              variant="button"
-              color="info"
-              fontWeight="medium"
-            >
-              Sign up
-            </ArgonTypography>
+              to="/authentication/sign-up">
+            Sign up
+          </ArgonButton>
+        </ArgonBox>
           </ArgonTypography>
         </ArgonBox>
       </ArgonBox>

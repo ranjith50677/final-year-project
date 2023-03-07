@@ -138,7 +138,7 @@ function DetailedStaticsCard({ bgColor, title, count, percentage, icon, directio
               ml={0.5}
               mt={-0.125}
             >
-              {percentage.text}
+                  {percentage.text}
             </ArgonTypography>
           </ArgonTypography>
         </ArgonBox>
